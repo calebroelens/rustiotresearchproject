@@ -1,0 +1,61 @@
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta5
+* @link https://tabler.io
+* Copyright 2018-2021 The Tabler Authors
+* Copyright 2018-2021 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Iot Devices Dashboard</title>
+    <!-- CSS files -->
+    <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@tabler/core@latest/dist/css/tabler.min.css">
+</head>
+<body >
+<div class="wrapper">
+    {% include "partials/header" %}
+    {% include "partials/nav" %}
+    <div class="page-wrapper">
+        <div class="container-xl">
+            <!-- Page title -->
+            <div class="page-header d-print-none">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h2 class="page-title">
+                            Home
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-body">
+            <div class="container-xl">
+                <div class="row row-cards">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <p>This is the <strong>Home</strong> page of my Research Project "Rust and Iot Devices".</p>
+                                <p>This website is split in a few <strong>categories</strong>:</p>
+                                <ul>
+                                    <li><p><strong>Devices</strong> contains all data about devices and their sensors.</p></li>
+                                    <li><p><strong>Status</strong> shows all system and service statuses.</p></li>
+                                    <li><p><strong>Documentation</strong> shows all documentation/info about this application.</p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include "partials/footer" %}
+    </div>
+</div>
+</body>
+</html>

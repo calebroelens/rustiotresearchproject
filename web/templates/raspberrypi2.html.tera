@@ -1,0 +1,131 @@
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta5
+* @link https://tabler.io
+* Copyright 2018-2021 The Tabler Authors
+* Copyright 2018-2021 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Iot Devices Dashboard</title>
+    <!-- CSS files -->
+    <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@tabler/core@latest/dist/css/tabler.min.css">
+    <script src="/scripts/charts.js"></script>
+</head>
+<body >
+<div class="wrapper">
+    {% include "partials/header" %}
+    {% include "partials/nav" %}
+    <div class="page-wrapper">
+        <div class="container-xl">
+            <!-- Page title -->
+            <div class="page-header d-print-none">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h2 class="page-title">
+                            Raspberry Pi 2 Device Sensors
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-body">
+            <div class="container-xl">
+                <div class="row row-cards">
+                    <div class="row align-items-center">
+                        <div class="col-auto" id="service-status-circle">
+                            {% if state == true %}
+                            <span class="status-indicator status-green status-indicator-animated">
+                                     <span class="status-indicator-circle"></span>
+                                    <span class="status-indicator-circle"></span>
+                                    <span class="status-indicator-circle"></span>
+                                 </span>
+                            {% else %}
+                            <span class="status-indicator status-red status-indicator-animated">
+                                    <span class="status-indicator-circle"></span>
+                                     <span class="status-indicator-circle"></span>
+                                    <span class="status-indicator-circle"></span>
+                                </span>
+                            {% endif %}
+                        </div>
+                        <div class="col">
+                            <h2 class="page-title">
+                                Raspberry Pi Temperature
+                            </h2>
+                            <div class="text-muted">
+                                <ul class="list-inline list-inline-dots mb-0">
+                                    {% if state == true%}
+                                    <li class="list-inline-item"><span class="text-green" id="service-status-color">Up</span></li>
+                                    <li class="list-inline-item">Sensor updates every minute</li>
+                                    {% else %}
+                                    <li class="list-inline-item"><span class="text-red" id="service-status-color">Down</span></li>
+                                    <li class="list-inline-item">Offline</li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-auto ms-auto d-print-none">
+                            <button class="btn btn-blue" id="check-state">Check state</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <h3 class="card-title">Filters</h3>
+                        </div>
+                        <br>
+                        <label class="form-label">Date</label>
+                        <div class="row g-2">
+                            <div class="col-3">
+                                <select name="day" class="form-select" id="sel-day">
+                                    <option value="day">Day</option>
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <select name="month" class="form-select"  id="sel-month">
+                                    <option value="month">Month</option>
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <select name="year" class="form-select" id="sel-year">
+                                    <option value="year">Year</option>
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <button class="btn btn-blue" id="apply-btn">Apply</button>
+                            </div>
+                            <p> <span id="entry-count"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-status-top bg-danger"></div>
+                    <div class="card-body">
+                        This sensor reads the temperature every 20-25s, and logs it to the database every minute.
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Temperature history</h3>
+                    </div>
+                    <br>
+                    <div class="card-body" id="temp-chart"></div>
+                </div>
+            </div>
+        </div>
+        {% include "partials/footer" %}
+    </div>
+</div>
+</body>
+<script src="/scripts/raspberrypi2.js"></script>
+</html>

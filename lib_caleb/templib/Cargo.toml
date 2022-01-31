@@ -1,0 +1,10 @@
+[package]
+name = "templib"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rppal = "0.11.1"
+mcp3xxx = "0.1.0-pre.1"
